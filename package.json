@@ -1,0 +1,19 @@
+{
+  "name": "image-compressor-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Compress JPEG / PNG / WebP images. CLI (npx) plus a browser web app.",
+  "workspaces": [
+    "packages/core",
+    "packages/cli",
+    "packages/web"
+  ],
+  "scripts": {
+    "build": "npm run build -w imgsquish && npm run build -w web",
+    "build:cli": "npm run build -w imgsquish",
+    "dev:web": "npm run dev -w web",
+    "build:web": "npm run build -w web",
+    "cli": "node packages/cli/dist/index.js"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#0a0a0b" />
+
+    <!-- Primary SEO -->
+    <title>ImageSquish: Compress Images to Fit Any Upload Limit</title>
+    <meta
+      name="description"
+      content="Free online image compressor. Shrink JPEG, PNG and WebP to fit 57 upload limits — GitHub avatar (1 MB), Discord (10 MB), Gmail (25 MB) and more. 100% in your browser, nothing uploaded."
+    />
+    <meta
+      name="keywords"
+      content="image compressor, compress image online, reduce image file size, compress image for discord, github avatar size, compress jpeg png webp, resize image online free, fit image under size limit"
+    />
+    <link rel="canonical" href="https://imgsquish.riyo.me/" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ImageSquish" />
+    <meta property="og:title" content="ImageSquish — Compress images to fit any upload limit" />
+    <meta
+      property="og:description"
+      content="Shrink JPEG, PNG and WebP to fit GitHub, Discord, Gmail and 54 more upload limits. 100% in your browser, nothing uploaded."
+    />
+    <meta property="og:url" content="https://imgsquish.riyo.me/" />
+    <meta property="og:image" content="https://imgsquish.riyo.me/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ImageSquish — Compress images to fit any upload limit" />
+    <meta
+      name="twitter:description"
+      content="Shrink JPEG, PNG and WebP to fit GitHub, Discord, Gmail and 54 more upload limits. 100% in your browser."
+    />
+    <meta name="twitter:image" content="https://imgsquish.riyo.me/og-image.png" />
+
+    <!-- Structured data: the tool -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "ImageSquish",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Web browser",
+        "description": "Free, private online image compressor. Shrink JPEG, PNG and WebP images to fit 57 platform upload limits, entirely in the browser with no upload.",
+        "url": "https://imgsquish.riyo.me/",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "featureList": [
+          "Compress JPEG, PNG and WebP",
+          "Fit under 57 upload size limits across 10 platform categories",
+          "Reduce PNG colors or resize without changing format",
+          "Runs 100% in the browser, nothing is uploaded",
+          "Command-line tool (npx imgsquish)"
+        ]
+      }
+    </script>
+
+    <!-- Structured data: FAQ (GEO) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I compress an image to fit a size limit like Discord or a GitHub avatar?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Open ImageSquish, drop in your image, and pick a target under \"Fit under a size limit\" (for example GitHub avatar 1 MB or Discord 10 MB). It automatically finds the highest quality that fits, downscaling only if needed. There are 57 built-in targets across 10 categories."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does ImageSquish upload my images to a server?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. All compression happens locally in your browser using the Canvas API. Your images never leave your device, and the app works fully offline once loaded."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which image formats can it compress?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "JPEG, PNG and WebP. By default it keeps the original format and makes the file smaller. You can also convert to WebP for the smallest result."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I make a PNG smaller without changing the format?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Reduce the number of colors or the dimensions. ImageSquish lowers a PNG's color count (which shrinks the file while keeping it a PNG) and can cap the longest side. A typical screenshot drops by around 80 percent."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the maximum image size for GitHub, Discord and Gmail?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A GitHub avatar must be under 1 MB (GitHub image uploads in issues and READMEs allow 10 MB). Discord's free upload limit is 10 MB (50 MB on Nitro Basic, 500 MB on Nitro). Gmail attachments are limited to 25 MB."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is ImageSquish free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. ImageSquish is free and open source under the MIT license, with no account, no ads and no upload. There is also a command-line version: npx imgsquish."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
