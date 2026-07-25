@@ -526,6 +526,9 @@ export function App() {
             >
               {t("footer.link.docs")}
             </button>
+            <a className="footer-link" href="/ai">
+              AI agent guide
+            </a>
             {canInstall && (
               <button className="footer-link" onClick={promptInstall}>
                 {t("footer.link.install")}
