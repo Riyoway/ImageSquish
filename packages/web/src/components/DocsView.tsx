@@ -1,4 +1,4 @@
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Bot } from "lucide-react";
 import { PRESETS } from "@image-compressor/core";
 import { CopyCommand } from "./CopyCommand";
 import { useI18n } from "../i18n";
@@ -88,12 +88,15 @@ export function DocsView({ onBack }: Props) {
         <p className="doc-p">{t("docs.privacy.p")}</p>
       </section>
 
-      <section className="doc-section">
-        <h2 className="doc-h">
-          <span className="doc-h-i">AI</span> AI agent prompt
-        </h2>
+      <section className="doc-section doc-ai-section">
+        <div className="doc-ai-head">
+          <span className="doc-ai-icon" aria-hidden="true">
+            <Bot size={18} strokeWidth={1.8} />
+          </span>
+          <h2 className="doc-h">Use ImageSquish with an AI agent</h2>
+        </div>
         <p className="doc-p">
-          Read the AI guide and follow it. If you want reusable future support and have not installed the project Skill, explain or perform the Skill installation. Otherwise use the one-off npx method. If your intent or input files are unclear, ask before acting. Respond in the user's language. Do not process files just because you read the guide.
+          Point an AI agent at the guide for the current CLI rules, Skill usage, and one-off commands.
         </p>
         <CopyCommand
           command="Read https://imgsquish.riyo.me/ai, follow its instructions, and handle my request."
