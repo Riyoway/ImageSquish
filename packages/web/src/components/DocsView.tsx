@@ -1,4 +1,11 @@
-import { ArrowLeft, Bot } from "lucide-react";
+import {
+  ArrowLeft,
+  Bot,
+  Settings2,
+  ShieldCheck,
+  SlidersHorizontal,
+  Terminal,
+} from "lucide-react";
 import { PRESETS } from "@image-compressor/core";
 import { CopyCommand } from "./CopyCommand";
 import { useI18n } from "../i18n";
@@ -24,7 +31,7 @@ export function DocsView({ onBack }: Props) {
 
       <section className="doc-section">
         <h2 className="doc-h">
-          <span className="doc-h-i">1</span> {t("docs.s1")}
+          <span className="doc-h-i" aria-hidden="true"><SlidersHorizontal size={17} strokeWidth={1.8} /></span> {t("docs.s1")}
         </h2>
         <p className="doc-p">{t("docs.presets.p")}</p>
         <div className="doc-table">
@@ -49,7 +56,7 @@ export function DocsView({ onBack }: Props) {
 
       <section className="doc-section">
         <h2 className="doc-h">
-          <span className="doc-h-i">2</span> {t("docs.s2")}
+          <span className="doc-h-i" aria-hidden="true"><Settings2 size={17} strokeWidth={1.8} /></span> {t("docs.s2")}
         </h2>
         <dl className="opt-list">
           <div className="opt">
@@ -73,7 +80,7 @@ export function DocsView({ onBack }: Props) {
 
       <section className="doc-section">
         <h2 className="doc-h">
-          <span className="doc-h-i">3</span> {t("docs.s3")}
+          <span className="doc-h-i" aria-hidden="true"><Terminal size={17} strokeWidth={1.8} /></span> {t("docs.s3")}
         </h2>
         <p className="doc-p">{t("docs.cli.p")}</p>
         <CopyCommand command="npx imgsquish ./images -o ./images-min" />
@@ -83,7 +90,7 @@ export function DocsView({ onBack }: Props) {
 
       <section className="doc-section">
         <h2 className="doc-h">
-          <span className="doc-h-i">4</span> {t("docs.s4")}
+          <span className="doc-h-i" aria-hidden="true"><ShieldCheck size={17} strokeWidth={1.8} /></span> {t("docs.s4")}
         </h2>
         <p className="doc-p">{t("docs.privacy.p")}</p>
       </section>
