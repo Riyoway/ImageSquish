@@ -4,17 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ImageSquish AI instructions</title>
-  <meta name="description" content="Machine-readable instructions for AI agents using ImageSquish.">
+  <meta name="description" content="Detailed machine-readable instructions for AI agents using ImageSquish.">
   <style>
     :root { color-scheme: light dark; font-family: system-ui, sans-serif; line-height: 1.55; }
-    body { max-width: 760px; margin: 0 auto; padding: 32px 20px 64px; }
+    body { max-width: 820px; margin: 0 auto; padding: 32px 20px 64px; }
     h1 { font-size: 1.8rem; }
     h2 { margin-top: 2rem; font-size: 1.15rem; }
     code, pre { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
     pre { white-space: pre-wrap; overflow-wrap: anywhere; padding: 12px; border: 1px solid currentColor; border-radius: 4px; }
     dt { font-weight: 700; margin-top: 12px; }
     dd { margin-left: 0; }
-    li { margin: 6px 0; }
+    li { margin: 5px 0; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; vertical-align: top; padding: 7px; border: 1px solid currentColor; }
     .prompt { display: flex; align-items: start; gap: 8px; }
     .prompt pre { flex: 1; margin: 0; }
     button { padding: 8px 12px; cursor: pointer; }
@@ -24,45 +26,92 @@
 <body>
   <main>
     <h1>ImageSquish AI instructions</h1>
-    <p>This is an instruction page for AI agents. Reading this page alone must not run commands, inspect files, install a Skill, or modify files. Respond in the user's language.</p>
+    <p>This page is an instruction source for AI agents. Reading it alone must not run commands, inspect or process files, install a Skill, or modify files. Respond in the user's language.</p>
 
-    <h2>Required behavior</h2>
+    <h2>Required decision flow</h2>
     <ol>
       <li>If the user only asks what ImageSquish is or asks to read this page, explain it and do not process files.</li>
-      <li>If the user wants image processing but has not chosen a reusable Skill or a one-off run, ask which they want before acting.</li>
-      <li>If the user gives concrete input files, folders, or globs and a clear operation, do not ask that choice again. Use the CLI rules below.</li>
-      <li>If paths, formats, presets, targets, or requested settings are unclear, ask only for the missing information.</li>
-      <li>Do not invent CLI options, formats, presets, targets, or recursive behavior.</li>
+      <li>If the user wants image processing but has not chosen reusable Skill support or a one-off run, ask which they want before acting.</li>
+      <li>If the user gives concrete input files, folders, or globs and a clear operation, do not ask that choice again. Use the CLI contract below.</li>
+      <li>If a path, preset, target, format, output location, or requested setting is missing, ask only for that missing information.</li>
+      <li>Do not invent a preset, option, format, service target, size limit, or recursive behavior.</li>
     </ol>
 
     <h2>Available methods</h2>
     <dl>
       <dt>Reusable Claude Code Skill</dt>
-      <dd>Install or use <code>.claude/skills/imgsquish/SKILL.md</code> when the user wants repeated support.</dd>
+      <dd><code>.claude/skills/imgsquish/SKILL.md</code>. Use this when the user wants repeated support.</dd>
       <dt>One-off CLI</dt>
-      <dd>Use <code>npx imgsquish [options] &lt;files|globs|folders...&gt;</code> for a single request.</dd>
+      <dd><code>npx imgsquish [options] &lt;files|globs|folders...&gt;</code>. Use this for a single request.</dd>
     </dl>
 
-    <h2>CLI contract</h2>
-    <dl>
-      <dt>Inputs</dt>
-      <dd>Single files, multiple files, globs, or folders. A folder matches supported files directly inside it and is not recursive.</dd>
-      <dt>Input extensions</dt>
-      <dd><code>.jpg</code>, <code>.jpeg</code>, <code>.png</code>, <code>.webp</code>.</dd>
-      <dt>Defaults</dt>
-      <dd>Preset <code>balanced</code>, output beside each input, input format preserved, suffix <code>-min</code>, metadata removed.</dd>
-      <dt>Options</dt>
-      <dd><code>-h</code>/<code>--help</code>, <code>--list-presets</code>, <code>--list-targets</code>, <code>-p</code>/<code>--preset</code>, <code>-q</code>/<code>--quality</code>, <code>-f</code>/<code>--format</code>, <code>-m</code>/<code>--max</code>, <code>-s</code>/<code>--max-size</code>, <code>-o</code>/<code>--out</code>, <code>--suffix</code>, <code>--keep-metadata</code>, <code>--lossless</code>, <code>--dry-run</code>.</dd>
-    </dl>
+    <h2>Presets</h2>
+    <table>
+      <thead><tr><th>Request or use case</th><th>Preset</th><th>Behavior</th></tr></thead>
+      <tbody>
+        <tr><td>Normal compression while keeping format</td><td><code>balanced</code></td><td>Keep format, quality 80</td></tr>
+        <tr><td>Smaller file while keeping format</td><td><code>small</code></td><td>Keep format, quality 60</td></tr>
+        <tr><td>Highest quality with some savings</td><td><code>high</code></td><td>Keep format, quality 92</td></tr>
+        <tr><td>Smallest result when format conversion is allowed</td><td><code>webp</code></td><td>Convert to WebP, quality 80</td></tr>
+      </tbody>
+    </table>
 
-    <h2>Safety</h2>
+    <h2>Service and platform size targets</h2>
+    <p>Use the exact ID with <code>--max-size &lt;id&gt;</code>. If the user gives a byte limit rather than a service, use a direct value such as <code>--max-size 8MB</code>.</p>
     <ul>
-      <li><code>--dry-run</code> performs compression calculations but skips file writes.</li>
-      <li>Existing output files can be overwritten.</li>
-      <li>Metadata is removed by default. Use <code>--keep-metadata</code> only when requested.</li>
-      <li>Multiple files are processed sequentially. Any failed file makes the final exit code 1.</li>
-      <li>Use <code>--list-presets</code> or <code>--list-targets</code> when the requested value is unknown.</li>
+      <li>Social: <code>twitter-avatar</code> 2 MB, <code>reddit-avatar</code> 5 MB, <code>linkedin-avatar</code> 8 MB, <code>tiktok-avatar</code> 10 MB, <code>pinterest-avatar</code> 32 MB.</li>
+      <li>Video: <code>youtube-thumbnail</code> 2 MB, <code>kick-avatar</code> 4 MB, <code>vimeo-avatar</code> 5 MB, <code>youtube-banner</code> 6 MB, <code>twitch-avatar</code> 10 MB, <code>twitch-banner</code> 10 MB.</li>
+      <li>Messaging: <code>discord</code> 10 MB, <code>whatsapp-photo</code> 16 MB, <code>messenger-attachment</code> 25 MB, <code>discord-nitro-basic</code> 50 MB, <code>microsoft-teams</code> 100 MB, <code>signal</code> 100 MB, <code>discord-nitro</code> 500 MB, <code>slack</code> 1 GB, <code>line</code> 1 GB, <code>telegram</code> 2 GB.</li>
+      <li>Email: <code>icloud-mail</code> 20 MB, <code>zoho-mail</code> 20 MB, <code>gmail</code> 25 MB, <code>outlook</code> 25 MB, <code>yahoo-mail</code> 25 MB, <code>proton-mail</code> 25 MB.</li>
+      <li>Developer: <code>github-avatar</code> 1 MB, <code>bitbucket</code> 1 MB, <code>stackoverflow</code> 2 MB, <code>github</code> 10 MB, <code>gitlab</code> 100 MB.</li>
+      <li>Community: <code>bluesky</code> 1 MB, <code>discourse</code> 10 MB, <code>mastodon</code> 16 MB, <code>reddit-post</code> 20 MB.</li>
+      <li>E-commerce: <code>amazon-seller</code> 10 MB, <code>etsy</code> 10 MB, <code>mercari</code> 10 MB, <code>ebay</code> 12 MB, <code>shopify</code> 20 MB.</li>
+      <li>Productivity: <code>notion</code> 5 MB, <code>trello</code> 10 MB, <code>google-docs</code> 50 MB, <code>confluence</code> 100 MB, <code>asana</code> 100 MB.</li>
+      <li>Image hosting: <code>cloudinary</code> 10 MB, <code>imgur</code> 20 MB, <code>imgbb</code> 32 MB, <code>postimages</code> 32 MB, <code>flickr</code> 100 MB.</li>
+      <li>Blogging: <code>ghost</code> 5 MB, <code>substack</code> 10 MB, <code>squarespace</code> 20 MB, <code>tumblr</code> 20 MB, <code>medium</code> 25 MB, <code>wix</code> 25 MB.</li>
     </ul>
+    <p>Examples: “fit this for Discord” means <code>--max-size discord</code>. “Fit a GitHub avatar” means <code>--max-size github-avatar</code>. Add <code>-m 500</code> only when the user asks for a 500 px longest side. If a service is not listed, ask for its intended byte limit.</p>
+
+    <h2>CLI options</h2>
+    <dl>
+      <dt><code>-h</code>, <code>--help</code></dt><dd>Print help and exit.</dd>
+      <dt><code>--list-presets</code></dt><dd>Print current preset IDs and descriptions and exit.</dd>
+      <dt><code>--list-targets</code></dt><dd>Print all size target IDs grouped by category and exit.</dd>
+      <dt><code>-p</code>, <code>--preset &lt;id&gt;</code></dt><dd>Select a preset. Default is <code>balanced</code>.</dd>
+      <dt><code>-q</code>, <code>--quality &lt;1-100&gt;</code></dt><dd>Override quality. For PNG this controls color count.</dd>
+      <dt><code>-f</code>, <code>--format &lt;keep|jpeg|jpg|png|webp&gt;</code></dt><dd>Choose output format. <code>jpg</code> is normalized to <code>jpeg</code>.</dd>
+      <dt><code>-m</code>, <code>--max &lt;px&gt;</code></dt><dd>Cap the longest side. Smaller images are not enlarged.</dd>
+      <dt><code>-s</code>, <code>--max-size &lt;size|target-id&gt;</code></dt><dd>Fit under a direct size such as <code>500KB</code> or a built-in target ID. Quality is searched automatically.</dd>
+      <dt><code>-o</code>, <code>--out &lt;dir&gt;</code></dt><dd>Write outputs to this directory and create it when needed.</dd>
+      <dt><code>--suffix &lt;str&gt;</code></dt><dd>Replace the default <code>-min</code> filename suffix.</dd>
+      <dt><code>--keep-metadata</code></dt><dd>Preserve EXIF and ICC metadata. Metadata is removed by default.</dd>
+      <dt><code>--lossless</code></dt><dd>Request lossless WebP output.</dd>
+      <dt><code>--dry-run</code></dt><dd>Calculate compression and report savings without writing files.</dd>
+    </dl>
+
+    <h2>Inputs, processing, and outputs</h2>
+    <ul>
+      <li>Supported input extensions: <code>.jpg</code>, <code>.jpeg</code>, <code>.png</code>, <code>.webp</code>.</li>
+      <li>Inputs may be one file, multiple files, a glob, or a folder.</li>
+      <li>Folders match supported files directly inside them and are not recursive. Use an explicit glob such as <code>"images/**/*.png"</code> for subfolders.</li>
+      <li>Default output is beside the input, keeps its format, and adds <code>-min</code>.</li>
+      <li>Existing output files are overwritten. Multiple files run sequentially. Any failed file makes the final exit code 1.</li>
+      <li>JPEG uses mozjpeg. WebP supports quality or lossless mode. PNG uses palette compression and reduces colors based on quality.</li>
+      <li>EXIF orientation is applied during processing. JPEG output fills transparent pixels with white.</li>
+    </ul>
+
+    <h2>Request to command examples</h2>
+    <pre><code>Normal: npx imgsquish photo.jpg
+Smaller, same format: npx imgsquish -p small photo.jpg
+Keep high quality: npx imgsquish -p high photo.jpg
+Convert to WebP: npx imgsquish -p webp photo.jpg
+Discord free upload: npx imgsquish --max-size discord clip.png
+GitHub avatar: npx imgsquish --max-size github-avatar -m 500 avatar.png
+Direct limit: npx imgsquish --max-size 8MB photo.jpg
+Resize and quality: npx imgsquish -q 70 -m 1600 hero.jpg
+Preserve metadata: npx imgsquish --keep-metadata photo.jpg
+Preview savings only: npx imgsquish --dry-run ./images
+Recursive glob: npx imgsquish "images/**/*.png" -p small</code></pre>
 
     <h2>Prompt</h2>
     <div class="prompt">
