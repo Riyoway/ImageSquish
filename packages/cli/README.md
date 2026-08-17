@@ -21,7 +21,7 @@ npx imgsquish -p small "shots/*.png"
 npx imgsquish -q 70 -m 1600 hero.jpg
 
 # Fit under a size limit, quality is chosen automatically
-npx imgsquish --max-size 10MB clip.png         # Discord (free)
+npx imgsquish --max-size 20MB clip.png         # Discord (free)
 npx imgsquish -s github-avatar -m 500 me.png   # 1 MB square avatar
 npx imgsquish --max-size 300KB -f jpeg pic.png
 
@@ -42,7 +42,7 @@ npx imgsquish --list-targets                # 57 targets across 10 categories
 
 There are 57 built-in targets across Social, Video, Messaging, Email, Developer,
 Community, E-commerce, Productivity, Image hosting and Blogging, for example
-`github-avatar` (1 MB), `discord` (10 MB), `gmail` (25 MB), `twitter-avatar`
+`github-avatar` (1 MB), `discord` (20 MB), `gmail` (25 MB), `twitter-avatar`
 (2 MB), `youtube-thumbnail` (2 MB) and `shopify` (20 MB). Run `--list-targets`
 for the full list.
 

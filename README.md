@@ -6,7 +6,7 @@
 
 **Compress JPEG, PNG and WebP images to fit any upload limit, in your browser or the terminal.**
 
-So the screenshot you want to post fits under Discord's 10 MB cap, and your avatar
+So the screenshot you want to post fits under Discord's 20 MB cap, and your avatar
 squeezes under GitHub's 1 MB limit, without you guessing at quality sliders.
 
 <p>
@@ -39,7 +39,7 @@ the color count (PNG), and can cap the dimensions. Converting to WebP is there t
 the smallest result.
 
 The headline feature is **fit under a size limit**: give it a target like a GitHub
-avatar (1 MB) or Discord's 10 MB cap and it binary-searches the highest quality that
+avatar (1 MB) or Discord's 20 MB cap and it binary-searches the highest quality that
 fits, downscaling only if it has to.
 
 | | |
@@ -108,7 +108,7 @@ are **57 targets across 10 categories**:
 | ------------- | -------------------------------------------------------------------------- |
 | Social        | X (2 MB), Reddit (5 MB), LinkedIn (8 MB), TikTok (10 MB), Pinterest (32 MB) |
 | Video         | YouTube thumbnail (2 MB) & banner (6 MB), Kick (4 MB), Vimeo (5 MB), Twitch (10 MB) |
-| Messaging     | Discord (10 / 50 / 500 MB), WhatsApp (16 MB), Messenger (25 MB), Teams, Signal (100 MB), Slack, LINE (1 GB), Telegram (2 GB) |
+| Messaging     | Discord (20 / 50 / 500 MB), WhatsApp (16 MB), Messenger (25 MB), Teams, Signal (100 MB), Slack, LINE (1 GB), Telegram (2 GB) |
 | Email         | iCloud & Zoho (20 MB), Gmail, Outlook, Yahoo, Proton (25 MB)               |
 | Developer     | GitHub avatar (1 MB) & upload (10 MB), Bitbucket (1 MB), Stack Overflow (2 MB), GitLab (100 MB) |
 | Community     | Bluesky (1 MB), Discourse (10 MB), Mastodon (16 MB), Reddit post (20 MB)   |
@@ -133,7 +133,7 @@ are **57 targets across 10 categories**:
 | `youtube-banner` | YouTube banner · 6 MB | `reddit-post` | Reddit image post · 20 MB |
 | `twitch-avatar` | Twitch avatar · 10 MB | `amazon-seller` | Amazon product image · 10 MB |
 | `twitch-banner` | Twitch banner · 10 MB | `etsy` | Etsy listing photo · 10 MB |
-| `discord` | Discord (free) · 10 MB | `mercari` | Mercari photo · 10 MB |
+| `discord` | Discord (free) · 20 MB | `mercari` | Mercari photo · 10 MB |
 | `whatsapp-photo` | WhatsApp photo · 16 MB | `ebay` | eBay listing photo · 12 MB |
 | `messenger-attachment` | Messenger attachment · 25 MB | `shopify` | Shopify product image · 20 MB |
 | `discord-nitro-basic` | Discord Nitro Basic · 50 MB | `notion` | Notion (free) file · 5 MB |

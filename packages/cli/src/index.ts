@@ -135,7 +135,7 @@ EXAMPLES
   npx imgsquish ./images -o ./images-min
   npx imgsquish -p small "shots/*.png"           # fewer PNG colors
   npx imgsquish -q 70 -m 1600 hero.jpg
-  npx imgsquish --max-size 10MB clip.png         # fit under Discord's limit
+  npx imgsquish --max-size 20MB clip.png         # fit under Discord's limit
   npx imgsquish -s github-avatar -m 500 me.png   # fit a 1MB square avatar
   npx imgsquish --dry-run ./images
 

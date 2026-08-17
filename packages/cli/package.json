@@ -1,6 +1,6 @@
 {
   "name": "imgsquish",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Compress and resize JPEG / PNG / WebP images from the command line. Powered by sharp, fast and batteries-included.",
   "type": "module",
   "bin": {

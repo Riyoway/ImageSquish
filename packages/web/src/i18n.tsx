@@ -110,7 +110,7 @@ const en: Dict = {
   "faq.title": "Frequently asked questions",
   "faq.q1": "How do I compress an image to fit a size limit like Discord or a GitHub avatar?",
   "faq.a1":
-    "Drop in your image and pick a target under “Fit under a size limit” (for example GitHub avatar 1 MB or Discord 10 MB). ImageSquish finds the highest quality that fits, downscaling only if it has to. There are 57 built-in targets across 10 categories.",
+    "Drop in your image and pick a target under “Fit under a size limit” (for example GitHub avatar 1 MB or Discord 20 MB). ImageSquish finds the highest quality that fits, downscaling only if it has to. There are 57 built-in targets across 10 categories.",
   "faq.q2": "Does ImageSquish upload my images?",
   "faq.a2":
     "No. All compression runs locally in your browser with the Canvas API. Your images never leave your device, and the app works fully offline once loaded.",
@@ -122,7 +122,7 @@ const en: Dict = {
     "Reduce its colors or its dimensions. ImageSquish lowers a PNG’s color count, which shrinks the file while keeping it a PNG, and can cap the longest side. A typical screenshot drops by around 80 percent.",
   "faq.q5": "What is the maximum image size for GitHub, Discord and Gmail?",
   "faq.a5":
-    "A GitHub avatar must be under 1 MB, while GitHub image uploads in issues and READMEs allow 10 MB. Discord’s free upload limit is 10 MB (50 MB on Nitro Basic, 500 MB on Nitro). Gmail attachments are limited to 25 MB.",
+    "A GitHub avatar must be under 1 MB, while GitHub image uploads in issues and READMEs allow 10 MB. Discord’s free upload limit is 20 MB (50 MB on Nitro Basic, 500 MB on Nitro). Gmail attachments are limited to 25 MB.",
   "faq.q6": "Is it free?",
   "faq.a6":
     "Yes. ImageSquish is free and open source under the MIT license, with no account, no ads and no upload. There is also a command-line version: npx imgsquish.",
@@ -164,7 +164,7 @@ const en: Dict = {
     "Optionally cap the longest side. Shrinking dimensions is the single biggest way to reduce file size for oversized photos.",
   "docs.opt.target.dt": "Fit under a size limit",
   "docs.opt.target.dd":
-    "Pick a target (GitHub avatar 1 MB, Discord 10 MB, and so on) or type your own. Each image is auto-compressed to land just under it, downscaling only if the limit cannot be met otherwise.",
+    "Pick a target (GitHub avatar 1 MB, Discord 20 MB, and so on) or type your own. Each image is auto-compressed to land just under it, downscaling only if the limit cannot be met otherwise.",
   "docs.s3": "Command line",
   "docs.cli.p": "Batch-process whole folders without leaving the terminal:",
   "docs.cli.p2":
@@ -266,7 +266,7 @@ const ja: Dict = {
   "faq.title": "よくある質問",
   "faq.q1": "Discord や GitHub アバターのサイズ上限に画像を収めるには?",
   "faq.a1":
-    "画像をドロップし、「サイズ上限に収める」でターゲットを選ぶだけです（例: GitHub アバター 1 MB、Discord 10 MB）。収まる範囲で最高品質を選び、どうしても必要なときだけ縮小します。10カテゴリにわたる57のターゲットを内蔵しています。",
+    "画像をドロップし、「サイズ上限に収める」でターゲットを選ぶだけです（例: GitHub アバター 1 MB、Discord 20 MB）。収まる範囲で最高品質を選び、どうしても必要なときだけ縮小します。10カテゴリにわたる57のターゲットを内蔵しています。",
   "faq.q2": "ImageSquish は画像をアップロードしますか?",
   "faq.a2":
     "いいえ。圧縮はすべてブラウザ内で Canvas API を使って行われます。画像が端末外に出ることはなく、読み込み後は完全オフラインで動作します。",
@@ -278,7 +278,7 @@ const ja: Dict = {
     "色数か寸法を減らします。ImageSquish は PNG の色数を下げてファイルを縮小し（PNG のまま）、長辺の上限も設定できます。一般的なスクリーンショットで約80%削減できます。",
   "faq.q5": "GitHub・Discord・Gmail の画像サイズ上限は?",
   "faq.a5":
-    "GitHub アバターは 1 MB 未満、Issue や README への画像アップロードは 10 MB までです。Discord の無料アップロードは 10 MB（Nitro Basic は 50 MB、Nitro は 500 MB）。Gmail の添付は 25 MB までです。",
+    "GitHub アバターは 1 MB 未満、Issue や README への画像アップロードは 10 MB までです。Discord の無料アップロードは 20 MB（Nitro Basic は 50 MB、Nitro は 500 MB）。Gmail の添付は 25 MB までです。",
   "faq.q6": "無料ですか?",
   "faq.a6":
     "はい。ImageSquish は MIT ライセンスのオープンソースで、アカウント不要・広告なし・アップロードなしです。コマンドライン版もあります: npx imgsquish。",
@@ -320,7 +320,7 @@ const ja: Dict = {
     "長辺の上限を任意で設定できます。寸法を小さくするのが、大きすぎる写真を最も減らせる方法です。",
   "docs.opt.target.dt": "サイズ上限に収める",
   "docs.opt.target.dd":
-    "ターゲット（GitHub アバター 1 MB、Discord 10 MB など）を選ぶか、自分で入力します。各画像が上限のすぐ下に収まるよう自動圧縮され、他に方法がない場合のみ縮小します。",
+    "ターゲット（GitHub アバター 1 MB、Discord 20 MB など）を選ぶか、自分で入力します。各画像が上限のすぐ下に収まるよう自動圧縮され、他に方法がない場合のみ縮小します。",
   "docs.s3": "コマンドライン",
   "docs.cli.p": "ターミナルからフォルダごと一括処理できます:",
   "docs.cli.p2":

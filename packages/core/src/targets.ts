@@ -116,10 +116,11 @@ export const SIZE_TARGETS: SizeTarget[] = [
   // ---- Messaging ------------------------------------------------------------
   {
     id: "discord",
-    label: "Discord (free) · 10 MB",
-    bytes: 10 * MB,
+    label: "Discord (free) · 20 MB",
+    bytes: 20 * MB,
     category: "Messaging",
-    sourceUrl: "https://support.discord.com/hc/en-us/articles/115000435108",
+    sourceUrl:
+      "https://support.discord.com/hc/en-us/articles/25444343291031-File-Attachments-FAQ",
   },
   {
     id: "whatsapp-photo",
@@ -142,7 +143,8 @@ export const SIZE_TARGETS: SizeTarget[] = [
     label: "Discord Nitro Basic · 50 MB",
     bytes: 50 * MB,
     category: "Messaging",
-    sourceUrl: "https://support.discord.com/hc/en-us/articles/115000435108",
+    sourceUrl:
+      "https://support.discord.com/hc/en-us/articles/25444343291031-File-Attachments-FAQ",
   },
   {
     id: "microsoft-teams",
@@ -165,7 +167,8 @@ export const SIZE_TARGETS: SizeTarget[] = [
     label: "Discord Nitro · 500 MB",
     bytes: 500 * MB,
     category: "Messaging",
-    sourceUrl: "https://support.discord.com/hc/en-us/articles/115000435108",
+    sourceUrl:
+      "https://support.discord.com/hc/en-us/articles/25444343291031-File-Attachments-FAQ",
   },
   {
     id: "slack",
