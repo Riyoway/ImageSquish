@@ -1,6 +1,6 @@
 /* =========================================================================
    ImageSquish, monochrome console
-   Neutral grayscale surfaces · a single teal accent, used sparingly
+   Neutral grayscale surfaces · a single sky-blue accent, used sparingly
    ========================================================================= */
 
 :root {
@@ -20,12 +20,12 @@
   --muted: #8a8a92;
   --faint: #585860;
 
-  /* the one accent, teal */
-  --accent: #2dd4bf;
-  --accent-deep: #14b8a6;
-  --accent-soft: rgba(45, 212, 191, 0.14);
-  --accent-glow: rgba(45, 212, 191, 0.4);
-  --on-accent: #04201c;
+  /* the one accent, sky blue */
+  --accent: #7dd3fc;
+  --accent-deep: #38bdf8;
+  --accent-soft: rgba(125, 211, 252, 0.14);
+  --accent-glow: rgba(56, 189, 248, 0.42);
+  --on-accent: #082f49;
 
   /* warn: file got bigger */
   --warn: #e0c089;
