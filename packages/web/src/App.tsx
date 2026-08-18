@@ -229,7 +229,7 @@ export function App() {
       {!reduceMotion && (
         <div className="hero-aurora" aria-hidden="true">
           <Aurora
-            colorStops={["#7dd3fc", "#22d3ee", "#3b82f6"]}
+            colorStops={["#2dd4bf", "#22d3ee", "#3b82f6"]}
             blend={0.5}
             amplitude={1.3}
             speed={0.4}
