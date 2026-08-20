@@ -106,7 +106,7 @@ export function FileRow({ item, onDownload, onRemove }: Props) {
             <div className="stat">
               <span className="stat-label">{t("stat.saved")}</span>
               <span className={`stat-value ${pct >= 0 ? "accent" : "warn"}`}>
-                {pct >= 0 ? "−" : "+"}
+                {pct >= 0 ? "" : "−"}
                 {Math.abs(pct).toFixed(0)}%
               </span>
             </div>
