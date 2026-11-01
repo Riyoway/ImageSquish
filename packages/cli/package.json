@@ -39,7 +39,7 @@
     "prepublishOnly": "tsup"
   },
   "dependencies": {
-    "sharp": "^0.33.5",
+    "sharp": "^0.35.5",
     "tinyglobby": "^0.2.10"
   },
   "devDependencies": {
